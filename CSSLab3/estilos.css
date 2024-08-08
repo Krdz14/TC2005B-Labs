@@ -1,0 +1,40 @@
+.verde {
+    color: rgb(14, 237, 14);
+}
+
+.verde:hover {
+    color: rgb(41, 118, 41);
+}
+
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Georgia", serif;
+    line-height: 1.5;
+    padding: 4em 1em;
+}
+
+header {
+    background-color: #7ca6fa;
+    background-image: url("header.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 1.2;
+    padding: 10vw 2em;
+    text-align: center;
+}
+
+header img {
+    display: inline-block;
+    height: 120px;
+    vertical-align: top;
+    width: 120px;
+}
+
+header h1 {
+  color: white;
+  font-family: "Cormorant Garamond";
+  font-size: 3.5em;
+  font-weight: 500;
+}

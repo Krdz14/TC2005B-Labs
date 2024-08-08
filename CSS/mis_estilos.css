@@ -1,7 +1,35 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
 .verde {
     color: rgb(14, 237, 14);
 }
 
-#titulo{
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    padding: 4em 1em;
+    color: #555;
+}
+
+.verde:hover {
+    color: rgb(41, 118, 41);
+}
+
+h2 {
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+#titulo {
     color:indigo;
+}
+
+h1, h2, strong {
+    color: #333;
+}
+
+a {
+    color: #e81c4f;
 }
