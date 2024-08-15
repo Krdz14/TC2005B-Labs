@@ -103,4 +103,4 @@ function inverso(num){
 
 const res5 = inverso(numI);
 
-document.write(`<br> E) El número es ${numI}, invertido es ${res5}`);
+document.write(`<br> E) El número es ${numI}, invertido es ${res5}`); 
