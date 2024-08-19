@@ -24,9 +24,15 @@ body {
 }
 
 header {
-    line-height: 0.5;
-    padding: 10vw 2em;
-    text-align: center;
+    background-color: #263d36;
+  background-image: url("header.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 1.2;
+  padding: 10vw 2em;
+  text-align: center;
+  max-width: 100em;
   }
 
 header h1 {
