@@ -27,6 +27,9 @@ const http = require('http');
 const server = http.createServer((request, response) => {
     console.log(request.url);
     response.setHeader('Content-Type', 'text/html');
+    if (request.url == "/preparar"){
+
+    } else {
     response.write(`
         <!DOCTYPE html>
         <html data-theme="light">
@@ -49,7 +52,6 @@ const server = http.createServer((request, response) => {
                             <span aria-hidden="true"></span>
                         </a>
                     </div>
-        
                     <div id="navbarBasicExample" class="navbar-menu">
                         <div class="navbar-start">
                             <a class="navbar-item">
@@ -69,7 +71,7 @@ const server = http.createServer((request, response) => {
                             </div>
                         </div>
                     </div>
-                </nav>
+                 </nav>
                 <section class="section">
                     <div class="container">
                         <header>
@@ -102,7 +104,7 @@ const server = http.createServer((request, response) => {
                                     </tr>
                                 </thead>
                             </table>
-                            <button class="button is-warning" id="boton_chilaquiles">Preparar orden</button>
+                            <a href="/preparar" class="button is-warning" id="boton_chilaquiles">Preparar orden</a>
                             <button style="display:none" class="button is-success" id="boton_salsa_verde">Poner salsa verde</button>
                             <button style="display:none" class="button is-warning" id="boton_suerte">Voy a tener suerte</button>
                             <button style="display:none" class="button is-danger" id="boton_salsa_roja">Poner salsa roja</button>
@@ -140,7 +142,9 @@ const server = http.createServer((request, response) => {
             </body>
         </html>
         `);
-        
-        response.end();
+    }
+    
+    response.end();
 });
-server.listen(3000);
+
+server.listen(3000); 
