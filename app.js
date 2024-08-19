@@ -77,14 +77,29 @@ const server = http.createServer((request, response) => {
                                 <h1 class="title">Preparar chilaquiles</h1>
                             </header>
                             <main>
-                                <form action="/preparar" method="POST">
-                                <div class="field">
+                                <br><br>
+                                    <div class="field">
                                     <label class="label" for="nombre">Nombre</label>
                                     <div class="control">
                                         <input id="nombre" name="nombre" class="input" type="text" placeholder="Lalo">
                                     </div>
                                 </div>
-                                    
+                                <div class="field">
+                                    <label for="salsa" class="label">Salsa</label>
+                                    <div class="control">
+                                        <div class="select">
+                                            <select id="salsa" name="salsa">
+                                                <option value="verde">Verde</option>
+                                                <option value="roja">Roja</option>
+                                                <option value="chipotle">Chipotle</option>
+                                                <option value="mole">Mole</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <input type="submit" class="button is-link" value="Preparar">
+                                </div>
                                 </form>
                             </main>
                             <footer class="footer">
