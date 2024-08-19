@@ -20,6 +20,24 @@ setTimeout(()=>{
     console.log("dangerrrr");
 }, 12000);
 
+const chilaquiles = [
+    {
+        descripcion: "Chilaquiles en salsa verde", 
+        imagen: "https://cdn7.kiwilimon.com/recetaimagen/1626/3018.jpg",
+    },
+    {
+        descripcion: "Chilaquiles en salsa roja", 
+        imagen: "https://cdn0.recetasgratis.net/es/posts/6/9/0/chilaquiles_rojos_con_pollo_75096_orig.jpg",
+    },
+    {
+        descripcion: "Chilaquiles en salsa de chipotle",
+        imagen: "https://www.gastrolabweb.com/u/fotografias/m/2021/1/20/f608x342-7419_37142_5050.jpg",
+    },
+    {
+        descripcion: "Chilaquiles con mole", 
+        imagen: "https://cdn7.kiwilimon.com/recetaimagen/38304/640x640/49051.jpg.webp",
+    },
+]
 
 //http es el módulo que contiene todas las funciones de un servidor http
 const http = require('http');
@@ -95,7 +113,7 @@ const html_footer = `
             </body>
         </html>
     `;
-    if (request.url == "/preparar") {
+    if (request.url == "/preparar" && request.method == "GET") {
         response.write(`
                         ${html_header}
                             <header>
@@ -107,7 +125,7 @@ const html_footer = `
                                     <div class="field">
                                     <label class="label" for="nombre">Nombre</label>
                                     <div class="control">
-                                        <input id="nombre" name="nombre" class="input" type="text" placeholder="Lalo">
+                                        <input id="nombre" name="nombre" class="input" type="text" placeholder="Kate" required>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -128,7 +146,50 @@ const html_footer = `
                                 </div>
                                 </form>
                             ${html_footer}
-        `);    
+        `);  
+        response.end();
+ 
+    } else if (request.url == "/preparar" && request.method == "POST") {
+        const datos = [];
+
+        request.on('data', (dato) => {
+            console.log(dato);
+            datos.push(dato);
+        });
+
+        request.on('end', () => {
+            const datos_completos = Buffer.concat(datos).toString();
+            console.log(datos_completos);
+            const salsa = datos_completos.split('&')[1].split('=')[1];
+            console.log(`Preparando chilaquiles con salsa ${salsa}`);
+
+            if(salsa == "verde") {
+                response.write(`
+                    ${html_header}
+                    <img alt="${chilaquiles[0].descripcion}" src="${chilaquiles[0].imagen}">
+                    ${html_footer}
+                `);
+            } else if (salsa == "roja") {
+                response.write(`
+                    ${html_header}
+                    <img alt="${chilaquiles[1].descripcion}" src="${chilaquiles[1].imagen}">
+                    ${html_footer}
+                `);
+            } else if (salsa == "chipotle") {
+                response.write(`
+                    ${html_header}
+                    <img alt="${chilaquiles[2].descripcion}" src="${chilaquiles[2].imagen}">
+                    ${html_footer}
+                `);
+            } else if (salsa == "mole"){
+                response.write(`
+                    ${html_header}
+                    <img alt="${chilaquiles[3].descripcion}" src="${chilaquiles[3].imagen}">
+                    ${html_footer}
+                `);
+            }
+            response.end();
+        });
 
     } else {
     response.write(`
@@ -183,9 +244,9 @@ const html_footer = `
                             </ul>
                         ${html_footer}
         `);
+        response.end();
     }
-    
-    response.end();
+
 });
 
 server.listen(3000); 
