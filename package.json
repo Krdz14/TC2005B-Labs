@@ -1,0 +1,27 @@
+{
+  "name": "tc2005b-labs",
+  "version": "1.0.0",
+  "description": "Aplicacion para vender chilaquiles",
+  "main": "APP.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krdz14/TC2005B-Labs.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "tc2005b"
+  ],
+  "author": "Kate Rodriguez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Krdz14/TC2005B-Labs/issues"
+  },
+  "homepage": "https://github.com/Krdz14/TC2005B-Labs#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
