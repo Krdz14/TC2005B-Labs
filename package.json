@@ -4,6 +4,7 @@
   "description": "Aplicacion para vender chilaquiles",
   "main": "APP.js",
   "scripts": {
+    "start": "nodemon APP.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
