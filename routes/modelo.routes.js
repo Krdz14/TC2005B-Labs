@@ -1,10 +1,20 @@
 const express = require('express');
-const app = express();
+const router = express.Router();
 
-const bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({extended: false}));
-
+const sneakers = [
+    {
+        descripcion: "Adidas Samba",
+        imagen: "https://media.gq.com.mx/photos/65c2943789f66df8f3bcdece/16:9/w_2560%2Cc_limit/adidas_Samba_Vegan.jpg",
+    },
+    {
+        descripcion: "Jordan 1 Nike",
+        imagen: "https://minymal.com.mx/wp-content/uploads/2022/03/Jordan-1-High-Retro-University-Blue-6.webp",
+    },
+    {
+        descripcion: "Converse",
+        imagen: "https://converse.com.mx/media/catalog/product/c/o/converse-chuck-70-en-bota-de-lona-unisex-negro-162050c-3_c8qe79v5p37epkki.jpg"
+    },
+];
 
 const html_header = `
             <!DOCTYPE html>
@@ -62,69 +72,68 @@ const html_footer = `
                                     The source code is licensed
                                     <a href="https://opensource.org/license/mit">MIT</a>. The
                                     website content is licensed
-                                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//"
-                                    >CC BY NC SA 4.0</a
-                                    >.
+                                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//">CC BY NC SA 4.0</a>.
                                 </p>
                             </div>
                         </footer>
                     </div>
                 </section>
-                <script src="js/poe.js"></script>
             </body>
         </html>
     `;
 
-//Middleware
-app.use((request, response, next)=>{
-    console.log('Middleware!');
-    next(); //Le permite a la peticion avanzar al sig middleware
+router.get('/',(request,response,next)=>{
+    console.log('Ruta /modelo');
+    response.send(`${html_header}
+        <header>
+            <h1 class="title">Seleccion Modelo</h1>
+        </header>
+        <main>
+            <br><br>
+            <form action="/modelo" method="POST">
+                <div class="field">
+                <label class="label" for="nombre">Nombre</label>
+                <div class="control">
+                    <input id="nombre" name="nombre" class="input" type="text" placeholder="Kate" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="modelo" class="label">Modelo</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="modelo" name="modelo">
+                            <option value="samba">Adidas Samba</option>
+                            <option value="jordan">Nike Jordan 1</option>
+                            <option value="converse">Converse</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="control">
+                <input type="submit" class="button is-link" value="Modelos">
+            </div>
+            </form>
+        ${html_footer}
+`);
+}); // Pagina seleccion modelo
+
+router.post('/', (request,response, next)=>{
+    console.log(request.body);
+    let seleccion_sneakers = 0;
+
+    if (request.body.modelo == "jordan") {
+        seleccion_sneakers = 1;
+    } else if (request.body.modelo == "converse") {
+        seleccion_sneakers = 2;
+    }
+
+    console.log(seleccion_sneakers);
+    
+    response.send(`
+        ${html_header}
+        <img alt="${sneakers[seleccion_sneakers].descripcion}" src="${sneakers[seleccion_sneakers].imagen}">
+        ${html_footer}
+    `)
 });
 
-const modeloRutas = require('./routes/modelo.routes');
-app.use('/modelo', modeloRutas);
-app.use((request, response, next)=>{
-    console.log('Otro middleware!');
-    response.send(`
-            ${html_header}
-            <header>
-                <h1 class="title">Sneakers</h1>
-            </header>
-            <main>
-                <br>
-                <p class="block">
-                    <strong>¡Bienvenidos a su tienda de confianza!</strong> 
-                    Los <span>sneaker</span> son <em>vida</em>. 
-                </p>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>Adidas Samba</td>
-                            <td>24, 24.5, 27, 28</td>
-                        </tr>
-                        <tr>
-                            <td>Nike Jordan 1</td>
-                            <td>23, 26, 28</td>
-                        </tr>
-                        <tr>
-                            <td>Converse</td>
-                            <td>23.5, 25, 27.5</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <td> Elige cualquiera de nuestros modelos</td>
-                    </tfoot>
-                    <thead>
-                        <tr>
-                            <th>Modelo</th>
-                            <th>Tallas disponibles</th>
-                        </tr>
-                    </thead>
-                </table>
-                <a href="/modelo" class="button is-warning" id="boton_sneakers">Crear pedido</a>
-            ${html_footer}
-`); //Manda la respuesta
-
-}); //Pagina Inicio
-
-app.listen(3000);
+module.exports = router;
