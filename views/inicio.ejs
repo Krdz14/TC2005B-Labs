@@ -1,0 +1,52 @@
+<%- include('includes/head.ejs') %>
+<header>
+    <h1 class="title">Sneakers</h1>
+</header>
+<main>
+    <br>
+    <br>
+    <a href="/agregar" class="button is-link is-light">Nuevo</a>
+    <br>
+    <br>
+    <div class = "columns">
+        <% for (sneakers of sneaker) { %>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure classs="image is-4by3">
+                        <img
+                            src="<%=sneakers.imagen %>"
+                            alt="<%= sneakers.descripcion %>"
+                        />
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img
+                                    src="<%= sneakers.imagen %>"
+                                    alt="<%= sneakers.descripcion %>"
+                                />
+                            </figure>
+                            </div>
+                            <div class="media-content">
+                            <p class="title is-4"><%= sneakers.descripcion %></p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <%= sneakers.descripcion %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+    </div>
+    <a href="/modelo" class="button is-warning" id="boton_sneakers">Crear pedido</a>
+    <button style="display:none" class="button is-success" id="boton_salsa_verde">Poner salsa verde</button>
+    <button style="display:none" class="button is-warning" id="boton_suerte">Voy a tener suerte</button>
+    <button style="display:none" class="button is-danger" id="boton_salsa_roja">Poner salsa roja</button>
+    <br><br>
+    <img width="40%" id="imagen_sneakers" src="" alt="" />
+<%- include('includes/foot.ejs') %>

@@ -1,0 +1,27 @@
+<%- include('includes/head.ejs') %>
+<header>
+    <h1 class="title">Agregar nuevos Sneakers</h1>
+</header>
+<main>
+    <br><br>
+    <form action="/agregar" method="POST">
+        <div class="field">
+            <label class="label" for="nombre">Descripcion</label>
+            <div class="control">
+                <input id="descripcion" name="descripcion" class="input" type="text" placeholder="Nombre..." required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="nombre">Imagen</label>
+            <div class="control">
+                <input id="imagen" name="imagen" class="input" type="text" placeholder="https://media.gq.com/photos/60d21a25ab6b8cc6e9d2c80a/1:1/w_3600,h_3600,c_limit/SNEAKER_GUIDE_OPENER.jpg" required>
+            </div>
+        </div>
+
+        <div class="control">
+            <input type="submit" class="button is-link" value="Agregar">
+        </div>
+        
+    </form>
+<%- include('includes/foot.ejs') %>

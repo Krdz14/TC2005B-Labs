@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs')%>
+        <header>
+            <h1 class="title">Seleccion Modelo</h1>
+        </header>
+        <main>
+            <br><br>
+            <form action="/modelo" method="POST">
+                <div class="field">
+                <label class="label" for="nombre">Nombre</label>
+                <div class="control">
+                    <input id="nombre" name="nombre" class="input" type="text" placeholder="Kate" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="modelo" class="label">Modelo</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="modelo" name="modelo">
+                            <option value="samba">Adidas Samba</option>
+                            <option value="jordan">Nike Jordan 1</option>
+                            <option value="converse">Converse</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="control">
+                <input type="submit" class="button is-link" value="Modelos">
+            </div>
+            </form>
+        <%- include('includes/foot.ejs')%>
