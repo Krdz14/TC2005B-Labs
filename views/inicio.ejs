@@ -9,14 +9,14 @@
     <br>
     <br>
     <div class = "columns">
-        <% for (sneakers of sneaker) { %>
+        <% for (sneaker of sneakers) { %>
             <div class="column">
                 <div class="card">
                     <div class="card-image">
                         <figure classs="image is-4by3">
                         <img
-                            src="<%=sneakers.imagen %>"
-                            alt="<%= sneakers.descripcion %>"
+                            src="<%= sneaker.imagen %>"
+                            alt="<%= sneaker.descripcion %>"
                         />
                         </figure>
                     </div>
@@ -25,28 +25,31 @@
                             <div class="media-left">
                             <figure class="image is-48x48">
                                 <img
-                                    src="<%= sneakers.imagen %>"
-                                    alt="<%= sneakers.descripcion %>"
+                                    src="<%= sneaker.imagen %>"
+                                    alt="<%= sneaker.descripcion %>"
                                 />
                             </figure>
                             </div>
                             <div class="media-content">
-                            <p class="title is-4"><%= sneakers.descripcion %></p>
+                            <p class="title is-4"><%= sneaker.descripcion %></p>
                             </div>
                         </div>
 
                         <div class="content">
-                            <%= sneakers.descripcion %>
+                            <%= sneaker.descripcion %>
                         </div>
                     </div>
                 </div>
             </div>
-        <%}%>
+        <% } %>
     </div>
     <a href="/modelo" class="button is-warning" id="boton_sneakers">Crear pedido</a>
     <button style="display:none" class="button is-success" id="boton_salsa_verde">Poner salsa verde</button>
     <button style="display:none" class="button is-warning" id="boton_suerte">Voy a tener suerte</button>
     <button style="display:none" class="button is-danger" id="boton_salsa_roja">Poner salsa roja</button>
-    <br><br>
-    <img width="40%" id="imagen_sneakers" src="" alt="" />
+    <br>
+    <br>
+
+    <img width="40%" id="imagen_sneaker" src="" alt="" />
+
 <%- include('includes/foot.ejs') %>

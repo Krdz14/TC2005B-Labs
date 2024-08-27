@@ -5,7 +5,7 @@ exports.get_modelo = (request, response, next) => {
     response.render('seleccion'); 
 };
 
-exports.post_modelo = (request,response, next)=>{
+exports.post_modelo = (request,response, next) => {
     console.log(request.body);
     let seleccion_sneakers = 0;
 
