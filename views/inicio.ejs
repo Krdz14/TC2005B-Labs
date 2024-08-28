@@ -8,6 +8,44 @@
     <a href="/agregar" class="button is-link is-light">Nuevo</a>
     <br>
     <br>
+    <% if (ultimo_pedido != '') { %>
+    <h2 class="subtitle">Ultimo pedido</h2>
+    <div class = "columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-image">
+                    <figure classs="image is-4by3">
+                    <img
+                        src="<%= imagen %>"
+                        alt="<%= ultimo_pedido %>"
+                    />
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img
+                                src="<%= imagen %>"
+                                alt="<%= ultimo_pedido %>"
+                            />
+                        </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4"><%= ultimo_pedido %></p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <%= ultimo_pedido %>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <% } %>
+    <br>
+    <br>
     <div class = "columns">
         <% for (sneaker of sneakers) { %>
             <div class="column">
