@@ -20,6 +20,7 @@ exports.post_modelo = (request,response, next) => {
     sneakers = Sneakers.fetchAll();
 
     response.setHeader('Set-Cookie', [`pedido=${sneakers[seleccion_sneakers].descripcion}`,`imagen=${sneakers[seleccion_sneakers].imagen}`]);
+    
     response.render('seleccionando.ejs', {
         username: request.session.username || '',
         alt: sneakers[seleccion_sneakers].descripcion,

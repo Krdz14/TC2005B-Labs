@@ -6,9 +6,9 @@ exports.get_root = (request, response, next) => {
     let ultimo_pedido = '';
     let imagen = '';
 
-    if (cookies){
-        ultimo_pedido = request.get('Cookie').split(';')[0].split('=')[1];
-        imagen = request.get('Cookie').split(';')[1].split('=')[1];
+    if(cookies) {
+        ultimo_pedido = cookies.split(';')[0].split('=')[1];
+        imagen = cookies.split(';')[1].split('=')[1];
     }
 
     response.render('inicio', {
