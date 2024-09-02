@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+    <html data-theme="light">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Laboritorio 6</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    </head>
+    <body>
+        <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+            <a class="navbar-item" href="https://www.instagram.com/krdzrys/">
+                <img src ="https://i.pinimg.com/736x/04/00/d2/0400d248669f436b567f4c895c962405.jpg">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            </div>
+        
+            <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                Home
+                </a>
+        
+                <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    More
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                    About us
+                    </a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </nav>
+    <section class="section">
+        <div class="container">
+            <figure class="image is-128x128 ">
+                <img class="is-rounded" src="https://i.pinimg.com/736x/04/00/d2/0400d248669f436b567f4c895c962405.jpg" />
+            </figure>
+        <h1 class="title" >
+            Digital gallery <em>pantone</em>
+        </h1>
+        <p class="subtitle">
+            Welcome to the ultimate art <strong>shopping</strong> experience!
+        </p>
+        <br>
+        <img width="100%" id="orderPlaced"src="" alt=""/>
+        <br>
+        <br>
+        <div class="columns">
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-image">
+                      <figure id="Ma cherie" class="image is-2by3">
+                        <img
+                          src=""
+                          alt=""
+                        />
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p id="cheriet"class="title is-4"></p>
+                        </div>
+                      </div>
+                      <div class="content">
+                        $899 MXN
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                      <figure id="MARTINI" class="image is-2by3">
+                        <img
+                          src=""
+                          alt=""
+                        />
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p id="MARTINIT"class="title is-4"></p>
+                        </div>
+                      </div>
+                  
+                      <div class="content">
+                        $999 MXN
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                      <figure id="FERRARI" class="image is-2by3">
+                        <img
+                          src=""
+                          alt=""
+                        />
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p id="FERRARIT"class="title is-4"></p>
+                        </div>
+                      </div>
+                  
+                      <div class="content">
+                        $1,299 MXN
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Seleccione</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <hr class="dropdown-divider" />
+                <a href="#" class="dropdown-item" id="itemCherie">Ma cherie</a>
+                <hr class="dropdown-divider" />
+                <a class="dropdown-item" id="itemMartini">MARTINI</a>
+                <hr class="dropdown-divider" />
+                <a href="#" class="dropdown-item" id="itemFerrari">FERRARI</a>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script src="lab6.js"></script>
+    </body>
+</html>
