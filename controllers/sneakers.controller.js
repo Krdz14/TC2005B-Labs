@@ -1,21 +1,27 @@
-const Sneakers = require('../models/sneaker.model')
+const Sneakers = require('../models/sneaker.model');
+const Ordenes = require('../models/ordenes.model');
 
 exports.get_root = (request, response, next) => {
-    const cookies = request.get('Cookie');
 
-    let ultimo_pedido = '';
-    let imagen = '';
+    let mensaje = request.session.mensaje || '';
 
-    if(cookies) {
-        ultimo_pedido = cookies.split(';')[0].split('=')[1];
-        imagen = cookies.split(';')[1].split('=')[1];
+    if (request.session.mensaje) {
+        request.session.mensaje = '';
     }
 
-    response.render('inicio', {
-        username: request.session.username || '',
-        sneakers: Sneakers.fetchAll(),
-        ultimo_pedido: ultimo_pedido,
-        imagen: imagen,
+   
+    Ordenes.fetchAll().then(([ordenes, fieldData]) => {
+        return Sneakers.fetch(request.params.sneakers_id)
+            .then(([rows, fieldData]) => {
+                return response.render('inicio', {
+                    username: request.session.username || '',
+                    sneakers: rows,
+                    mensaje: mensaje,
+                    ordenes: ordenes,
+                });
+            })
+    }).catch((error) => {
+        console.log(error);
     });
 };
 
@@ -27,10 +33,16 @@ exports.get_agregar = (request, response, next) => {
 };
 
 exports.post_agregar = (request, response, next) => {
+
     const sneakers = new Sneakers(request.body.descripcion, 
         request.body.imagen);
 
-    sneakers.save();
+    request.session.mensaje = `${sneakers.descripcion} fueron registrados con éxito`;
 
-    response.redirect('/');
+    sneakers.save()
+        .then(() => {
+            return response.redirect('/');
+        }).catch((error) => {
+            console.log(error)
+        });
 };

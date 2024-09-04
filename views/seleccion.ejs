@@ -5,10 +5,16 @@
         <main>
             <br><br>
             <form action="/modelo" method="POST">
-                <div class="field">
-                <label class="label" for="nombre">Nombre</label>
+            <div class="field">
+                <label class="label" for="username">Usuario</label>
                 <div class="control">
-                    <input id="nombre" name="nombre" class="input" type="text" placeholder="Kate" required>
+                    <div class="select">
+                        <select id="username" name="username">
+                            <% for(user of users) { %> 
+                                <option value="<%= user.username %>"><%= user.nombre %></option>
+                            <% } %>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="field">
@@ -16,9 +22,9 @@
                 <div class="control">
                     <div class="select">
                         <select id="modelo" name="modelo">
-                            <option value="samba">Adidas Samba</option>
-                            <option value="jordan">Nike Jordan 1</option>
-                            <option value="converse">Converse</option>
+                            <% for(sneaker of sneakers) { %> 
+                                <option value="<%= sneakers.id %>"><%= sneaker.descripcion %></option>
+                            <% } %>
                         </select>
                     </div>
                 </div>

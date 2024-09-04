@@ -3,47 +3,66 @@
     <h1 class="title">Sneakers</h1>
 </header>
 <main>
+    <% if(mensaje != '') { %>
+        <div class="notification is-info">
+            <button class="delete"></button>
+            <%= mensaje %>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                    const $notification = $delete.parentNode;
+
+                    $delete.addEventListener('click', () => {
+                    $notification.parentNode.removeChild($notification);
+                    });
+                });
+            });
+    </script>
+    <% } %>
     <br>
     <br>
-    <a href="/agregar" class="button is-link is-light">Nuevo</a>
+    <a href="/modelo" class="button is-warning" id="boton_sneakers">Pedido</a>
     <br>
     <br>
-    <% if (ultimo_pedido != '') { %>
-    <h2 class="subtitle">Ultimo pedido</h2>
     <div class = "columns">
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <figure classs="image is-4by3">
-                    <img
-                        src="<%= imagen %>"
-                        alt="<%= ultimo_pedido %>"
-                    />
-                    </figure>
-                </div>
-                <div class="card-content">
+        <% for (orden of ordenes) { %>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                        <img
+                            src="<%= orden.imagen %>"
+                            alt="<%= orden.descripcion %>"
+                        />
+                        </figure>
+                    </div>
+                    <div class="card-content">
                     <div class="media">
                         <div class="media-left">
                         <figure class="image is-48x48">
                             <img
-                                src="<%= imagen %>"
-                                alt="<%= ultimo_pedido %>"
+                                src="<%= orden.imagen %>"
+                                alt="<%= orden.descripcion %>"
                             />
                         </figure>
                         </div>
                         <div class="media-content">
-                            <p class="title is-4"><%= ultimo_pedido %></p>
+                        <p class="title is-4"><%= orden.nombre %></p>
                         </div>
                     </div>
-
                     <div class="content">
-                        <%= ultimo_pedido %>
+                        <p><%= orden.descripcion %></p>
+                        <p><%= orden.created_at %></p>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
+        <% } %> 
     </div>
-    <% } %>
+    <br>
+    <br>
+    <a href="/agregar" class="button is-link">Nuevo</a>
     <br>
     <br>
     <div class = "columns">
@@ -69,7 +88,7 @@
                             </figure>
                             </div>
                             <div class="media-content">
-                            <p class="title is-4"><%= sneaker.descripcion %></p>
+                            <p class="title is-4" ><a href="/<%= sneaker.id %>"><%= sneaker.descripcion %></a></p>
                             </div>
                         </div>
 
@@ -81,10 +100,10 @@
             </div>
         <% } %>
     </div>
-    <a href="/modelo" class="button is-warning" id="boton_sneakers">Crear pedido</a>
-    <button style="display:none" class="button is-success" id="boton_salsa_verde">Poner salsa verde</button>
-    <button style="display:none" class="button is-warning" id="boton_suerte">Voy a tener suerte</button>
-    <button style="display:none" class="button is-danger" id="boton_salsa_roja">Poner salsa roja</button>
+   
+    <button style="display:none" class="button is-success" id="boton_24.5">Talla 24.5</button>
+    <button style="display:none" class="button is-warning" id="boton_24">Talla 24</button>
+    <button style="display:none" class="button is-danger" id="boton_27">Talla 27</button>
     <br>
     <br>
 
