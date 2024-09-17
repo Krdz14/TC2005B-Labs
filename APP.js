@@ -17,11 +17,9 @@ app.use(session({
     saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
 
-//Middleware
-app.use((request, response, next)=>{
-    console.log('Middleware!');
-    next(); //Le permite a la peticion avanzar al sig middleware
-});
+const csrf = require('csurf');
+const csrfProtection = csrf();
+app.use(csrfProtection); 
 
 app.use('/about', (request, response, next) => {
     response.sendFile(path.join(__dirname, 'old_labs', 'about.html'));

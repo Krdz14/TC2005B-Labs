@@ -14,6 +14,7 @@ exports.get_modelo = (request, response, next) => {
                         username: request.session.username || '',
                         sneakers: sneakers,
                         users: users,
+                        csrfToken: request.csrfToken(),
                     }); 
                 });
         }).catch((error) => { 

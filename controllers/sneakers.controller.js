@@ -29,6 +29,7 @@ exports.get_root = (request, response, next) => {
 exports.get_agregar = (request, response, next) => {
     response.render('agregar', {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     });
 };
 
