@@ -53,6 +53,7 @@
             Welcome to the ultimate art <strong>shopping</strong> experience!
         </p>
         <br>
+        </div>
         <img width="100%" id="orderPlaced"src="" alt=""/>
         <br>
         <br>
@@ -75,6 +76,9 @@
                       </div>
                       <div class="content">
                         $899 MXN
+                        <div class="has-text-centered">
+                          <button class="button is-info" id="1" data-price="899">Agregar</button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -98,6 +102,9 @@
                   
                       <div class="content">
                         $999 MXN
+                        <div class="has-text-centered">
+                          <button class="button is-info" id="2" data-price="999">Agregar</button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -121,31 +128,123 @@
                   
                       <div class="content">
                         $1,299 MXN
+                        <div class="has-text-centered">
+                          <button class="button is-info" id="3" data-price="1299">Agregar</button>
+                        </div>
                       </div>
                     </div>
                   </div>
             </div>
         </div>
-        <div class="dropdown is-hoverable">
-            <div class="dropdown-trigger">
-              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>Seleccione</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
+        <div>
+          <h1 class="title"><strong>CARRITO</strong></h1>
+          <div class="columns">
+            <div class="column is-half is-offset-one-quarter">
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">PANTONE</p>
+                    </div>
+                  </div>
+    
+                </div>
+                <div class="content">
+                  <table class="table cart">
+                    <thead class="cart-header">
+                      <tr>
+                        <th>Item</th>
+                        <th>Cantidad</th>
+                        <th colspan="2" class="has-text-right pl-0">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody">
+                      <tr class="cart-row">
+                        <td class="cart-product-media  cart-product-row">
+                          <div class="media-content">
+                            <div class="content">
+                              <p>
+                                <strong class="title is-6">
+                                  MA CHERIE</strong><br>
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="cart-product-row cart-qnt has-text-centered">
+                          <span id="count">0</span>
+                        </td>
+                        <td class="cart-product-subtotal has-text-right nowrap">
+                          <span id="sum">0</span>
+                        </td>
+                      </tr>
+                      <tr class="cart-row">
+                        <td class="cart-product-media  cart-product-row">
+                          <div class="media-content">
+                            <div class="content">
+                              <p>
+                                <strong class="title is-6">
+                                  FERRARI</strong><br>
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="cart-product-row cart-qnt has-text-centered">
+                          <span id="count2">0</span>
+                        </td>
+                        <td class="cart-product-subtotal has-text-right nowrap">
+                          <span id="sum2">0</span>
+                        </td>
+                      </tr>
+                      <tr class="cart-row">
+                        <td class="cart-product-media  cart-product-row">
+                          <div class="media-content">
+                            <div class="content">
+                              <p>
+                                <strong class="title is-6">
+                                  MARTINI</strong><br>
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="cart-product-row cart-qnt has-text-centered">
+                          <span id="count1">0</span>
+                        </td>
+                        <td class="cart-product-subtotal has-text-right nowrap">
+                          <span id="sum1">0</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr class="cart-price-row">
+                        <td colspan="2">Subtotal:</td>
+                        <td class="nowrap cart-price-cell has-text-right pl-0">
+                          <span id="subtotal">0</span>
+                        </td>
+                      </tr>
+    
+                      <tr class="cart-price-row is-size-5 has-text-weight-bold">
+                        <td colspan="2">Total (IVA):</td>
+                        <td class="nowrap cart-price-cell has-text-right pl-0">
+                          <span id="total">0</span>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <div class="has-text-centered">
+                    <button class="button is-info" id="checkout">Terminar</button>
+                  </div>
+                </div>
+                <br>
             </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
-                <hr class="dropdown-divider" />
-                <a href="#" class="dropdown-item" id="itemCherie">Ma cherie</a>
-                <hr class="dropdown-divider" />
-                <a class="dropdown-item" id="itemMartini">MARTINI</a>
-                <hr class="dropdown-divider" />
-                <a href="#" class="dropdown-item" id="itemFerrari">FERRARI</a>
             </div>
-            </div>
-        </div>
+          </div>
+      </div>
+      <div>
+        <p>
+          <span class="btn btn-secondary">Formato Shopping Cart by</span>
+          <a href="https://codepen.io/abbdul97/pen/NWBwEPz?editors=1000" class="btn btn-primary">Andrew</a>
+        </p>
+      </div>
     </section>
     <script src="lab6.js"></script>
     </body>
