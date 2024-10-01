@@ -25,6 +25,7 @@
     <a href="/modelo" class="button is-warning" id="boton_sneakers">Pedido</a>
     <br>
     <br>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
     <div class = "columns">
         <% for (orden of ordenes) { %>
             <div class="column">
